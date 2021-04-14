@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transiciones CSS</title>
+    <style>
+        .pelota {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+            /* transition-property: width, height; */
+            /* transition-duration: 1s; */
+            /* transition-delay: 1s; */
+            /* transition-timing-function: ease; */
+
+            /*
+            Ejemplo del uso del shortcut 'transition' para abreviar la
+            declaración de la transición.
+            Sintaxis:
+            transition: propiedad duración delay timing-function;
+
+            En el siguiente ejemplo se omite el delay.
+            */
+            transition: width 1s ease;
+            /*
+            También se puede omitir la propiedad para que se aplique a todas
+            las propiedades que cambien.
+
+            Así:
+            transition: 1s ease;
+            */
+
+        }
+        /*La transición ocurre al aplicar la clase 'b' conjuntamente con la
+        clase 'pelota'*/
+        .pelota:hover {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <p>Primera demostración de transiciones de CSS3</p>
+    <div class="pelota"></div>
+</body>
+</html>

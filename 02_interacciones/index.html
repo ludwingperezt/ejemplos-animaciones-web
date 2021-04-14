@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transiciones CSS</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .pelota {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: 1s;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .pelota.a {
+            background: red;
+            left: 0;
+        }
+        .pelota.b {
+            background: blue;
+            right: 0;
+        }
+        .canasta {
+            border: 1px solid red;
+            position: relative;
+            height: 100px;
+            width: 100%;
+        }
+        .canasta:hover .pelota.a {
+            /*
+            Para que las pelotas no se crucen se utiliza la función calc()
+            En éste caso al 50% le resta los 100px del ancho original de
+            la pelota
+            */
+            left: calc(50% - 100px);
+        }
+        .canasta:hover .pelota.b {
+            right: calc(50% - 100px);
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <p>Transiciones con interacción entre elementos</p>
+    <p>Si la transición se aplica a dos o más elementos que interactúan, la transición debe declararse en un elemento que contenga los elementos.</p>
+-->
+    <div class="canasta">
+        <div class="pelota a">Hola</div>
+        <div class="pelota b">Mundo</div>
+    </div>
+</body>
+</html>

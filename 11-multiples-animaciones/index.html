@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transformación punto de origen</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial;
+        }
+
+        .container {
+            border: 1px solid red;
+            width: 100%;
+        }
+
+        .cuadrado {
+            width: 200px;
+            height: 200px;
+            background: #7dc900;
+            margin: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation-name: cuadrado, rebote;
+            animation-duration: 2s, 300ms;
+            animation-iteration-count: infinite;
+            /* animation-timing-function: ease; */
+            animation-direction: alternate;
+            animation-timing-function: linear, ease-in-out;
+            position: relative;
+        }
+        @keyframes cuadrado {
+            0% {
+                left: 0%;
+            }
+            100% {
+                left: calc(100% - 240px);
+            }
+        }
+        @keyframes rebote {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(100px) scale(1, .8);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cuadrado">
+            Hola mundo!
+        </div>
+    </div>
+</body>
+</html>

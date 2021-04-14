@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twitter like</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        .like {
+            cursor: pointer;
+            /* width: 100px;
+            height: 100px; */
+            /*
+            La imagen escala a la mitad para que se vea correctamente en pantallas
+            con doble densidad de imagen (retina display support).
+            Debido al uso de background-position: right no fue necesario
+            hacer ningún cambio en la animación debido al escalamiento.
+            */
+            width: 50px;
+            height: 50px;
+            background-image: url("corazon.png");
+            background-size: 1450px 50px;
+        }
+        .like.is-liked {
+            animation-name: like;
+            animation-duration: 1s;
+            /*
+            Opcion 1:
+            Se cuentan solo 29 pasos para que la última imagen (el like completo)
+            quede como imagen final, de lo contrario vuelve a la imagen original.
+            NO SE CUENTA la posición inicial para establecer los steps.
+            */
+            animation-timing-function: steps(28);
+            /* background-position: -2800px 0; */
+            /*
+            Opción 2:
+            En lugar de usar un background-position negativo, se utiliza
+            background-position: right;
+            */
+            /* background-position: right; */
+            /*
+            Opción 3:
+            Es posible utilizar animation-fill-mode para que la animación se
+            quede como el último estado conocido (que no regrese al inicio)
+            */
+            animation-fill-mode: forwards;
+        }
+        @keyframes like {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                /* background-position: -2800px 0; */
+                background-position: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tweet-box">
+        <div class="like" id="like"></div>
+    </div>
+    <script>
+        const like = document.getElementById('like');
+        like.addEventListener('click', (e) => {
+            // like.classList.add('is-liked');
+            like.classList.toggle('is-liked');
+        });
+    </script>
+</body>
+</html>

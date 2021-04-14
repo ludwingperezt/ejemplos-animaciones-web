@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript element.animate</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 600px;
+            border: 1px solid red;
+        }
+        .pelota {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pelota" id="pelota">
+
+        </div>
+    </div>
+    <script>
+        const pelota = document.getElementById("pelota");
+        pelota.animate([
+            // from
+            {
+                transform: 'translateX(0)'
+            },
+            // to
+            {
+                transform: 'translateX(500px)'
+            }
+        ],
+        {
+            duration: 1000, //duración de la animación
+            delay: 1000, // Tiempo de retardo del inicio de la animación
+            direction: 'normal', //Dirección de la animación
+            easing: 'linear', //Función de aceleración
+            iterations: Infinity, //Número de veces a repetir
+            fill: 'forwards', // Modo de aplicación de estilos al finalizar animación
+            iterationStart: 0.5 //Punto de inicio de la animación entre 0 y 100% indicado por un número entre 0 y 1
+            // ,endDelay: 5000  //Tiempo de espera al final de la animación (en ms). Muy util en caso de animaciones encadenadas
+        });
+    </script>
+</body>
+</html>
